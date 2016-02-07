@@ -100,8 +100,7 @@ declare namespace bookshelf {
         query(): knex.QueryBuilder;
         refresh(options?: FetchOptions): Promise<T>;
         resetQuery(): T;
-        save(key?: string, val?: string, options?: SaveOptions): Promise<T>;
-        save(attrs?: { [key: string]: any }, options?: SaveOptions): Promise<T>;
+        save(attr? : string | Object, val? : string | SaveOptions, options? : SaveOptions) : Promise<T>;
         through<R extends Model<any>>(interim: typeof Model, throughForeignKey?: string,
 										  otherKey?: string): R | Collection<R>;
         where(properties: { [key: string]: any }): T;
