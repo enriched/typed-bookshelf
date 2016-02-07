@@ -7,7 +7,9 @@ import knex = require('knex');
 import Promise = require('bluebird');
 import Lodash = require('lodash');
 
-declare module bookshelf {
+declare function bookshelf(knex: knex.Knex): bookshelf.Bookshelf;
+
+declare namespace bookshelf {
 
     interface BookshelfFactory {
         (knex: knex.Knex): Bookshelf;
@@ -309,6 +311,4 @@ declare module bookshelf {
 
     interface CollectionCreateOptions extends ModelOptions, SyncOptions, CollectionAddOptions, SaveOptions { }
 }
-
-declare var bookshelf: bookshelf.BookshelfFactory;
 export = bookshelf;
