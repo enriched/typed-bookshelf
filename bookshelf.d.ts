@@ -3,10 +3,12 @@
 // Definitions by: Andrew Schurman <http://github.com/arcticwaters>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
+import knex = require('knex');
+import Promise = require('bluebird');
+import Lodash = require('lodash');
+
 declare module bookshelf {
-	import knex = require('knex');
-	import Promise = require('bluebird');
-	import Lodash = require('lodash');
+
 
     function Bookshelf(knex : knex.Knex) : Bookshelf.Bookshelf;
 
