@@ -307,7 +307,7 @@ declare module bookshelf {
         (model: T, attrs: any, options: any): Promise<any> | void;
     }
 
-    interface CollectionCreateOptions extends ModelOptions, SyncOptions, CollectionAddOptions, SaveOptions { }Ò
+    interface CollectionCreateOptions extends ModelOptions, SyncOptions, CollectionAddOptions, SaveOptions { }
 }
 
 declare var bookshelf: bookshelf.BookshelfFactory;
