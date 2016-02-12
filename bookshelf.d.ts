@@ -109,9 +109,9 @@ declare namespace bookshelf {
         where(key: string, operatorOrValue: string | number | boolean, valueIfOperator?: string | number | boolean): T;
 
         //Errors
-        NoRowsDeletedError: typeof BookshelfError;
-        NoRowsUpdatedError: typeof BookshelfError;
-        NotFoundError: typeof BookshelfError;
+        static NoRowsDeletedError: typeof BookshelfError;
+        static NoRowsUpdatedError: typeof BookshelfError;
+        static NotFoundError: typeof BookshelfError;
     }
 
     class Collection<T extends Model<any>> extends Events<T> {
@@ -232,7 +232,7 @@ declare namespace bookshelf {
         withPivot(columns: string[]): Collection<T>;
 
         // Errors
-        EmptyError: typeof BookshelfError;
+        static EmptyError: typeof BookshelfError;
     }
 
     interface ModelOptions {
