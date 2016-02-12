@@ -84,7 +84,7 @@ declare namespace bookshelf {
         belongsToMany<R extends Model<any>>(target: { new (...args: any[]): R }, table?: string,
 												foreignKey?: string, otherKey?: string): Collection<R>;
         count(column?: string, options?: SyncOptions): Promise<number>;
-        destroy(options: SyncOptions): void;
+        destroy(options: SyncOptions): Promise<T>;
         fetch(options?: FetchOptions): Promise<T>;
         fetchAll(options?: FetchAllOptions): Promise<Collection<T>>;
         hasMany<R extends Model<any>>(target: { new (...args: any[]): R }, foreignKey?: string): Collection<R>;
