@@ -33,6 +33,8 @@ declare namespace bookshelf {
         once(event: string, callback: EventFunction<T>, context?: any): void;
     }
 
+    class BookshelfError {}
+
     class Model<T extends Model<any>> extends Events<T> {
         static collection<T extends Model<any>>(models?: T[], options?: CollectionOptions<T>): Collection<T>;
         static count(column?: string, options?: SyncOptions): Promise<number>;
@@ -105,6 +107,11 @@ declare namespace bookshelf {
 										  otherKey?: string): R | Collection<R>;
         where(properties: { [key: string]: any }): T;
         where(key: string, operatorOrValue: string | number | boolean, valueIfOperator?: string | number | boolean): T;
+
+        //Errors
+        NoRowsDeletedError: typeof BookshelfError;
+        NoRowsUpdatedError: typeof BookshelfError;
+        NotFoundError: typeof BookshelfError;
     }
 
     class Collection<T extends Model<any>> extends Events<T> {
@@ -223,6 +230,9 @@ declare namespace bookshelf {
         through<R extends Model<any>>(interim: typeof Model, throughForeignKey?: string, otherKey?: string): R | Collection<R>;
         updatePivot(attributes: any, options?: PivotOptions): Promise<number>;
         withPivot(columns: string[]): Collection<T>;
+
+        // Errors
+        EmptyError: typeof BookshelfError;
     }
 
     interface ModelOptions {
